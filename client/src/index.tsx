@@ -7,7 +7,6 @@ import { Switch } from "react-router";
 import { AppRoutes } from "./app-routes";
 
 import { appStore } from "./app-state";
-import * as serviceWorkerRegistration from "../serviceWorkerRegistration";
 // import "./extensions/array";
 import { history } from "./history-instance";
 
@@ -21,7 +20,6 @@ render(
   </Provider>,
   document.getElementById("root")
 );
-serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
