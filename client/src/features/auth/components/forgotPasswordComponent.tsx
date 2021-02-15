@@ -9,6 +9,40 @@ import cs from "../../../assets/img/cs.png";
 import navi from "../../../assets/img/navi.png";
 
 const ForgotPasswordComponent = (): JSX.Element => {
+  const [email, setEmail] = React.useState("");
+  const [isValid, setIsValid] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState(
+    "Вы еще ничего не ввели"
+  );
+  const Errors = (inputType: string, value: string) => {
+    if (inputType === "email") {
+      let ss = value;
+
+      new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/g).test(ss)
+        ? setIsValid(true)
+        : setIsValid(false);
+
+      if (value.trim().length == 0) {
+        setErrorMessage("Вы еще ничего не ввели");
+      } else if (!value.includes("@") && !value.includes(".")) {
+        setErrorMessage("Не найдено символы @ . ");
+      } else if (!value.includes("@")) {
+        setErrorMessage("Не найдено символ `@`");
+      } else if (!value.includes(".")) {
+        setErrorMessage("Не найдено символ `.`");
+      } else if (isValid) {
+        setErrorMessage("All done");
+      }
+    }
+  };
+  const handleEmailChange = (evt: any) => {
+    setEmail(evt.target.value);
+    Errors("email", evt.target.value);
+  };
+  React.useEffect(() => {
+    console.log(isValid, setIsValid, setEmail);
+    return () => {};
+  }, [isValid, email]);
   return (
     <>
       <div className="forgot-password-wrapper">
@@ -23,6 +57,7 @@ const ForgotPasswordComponent = (): JSX.Element => {
               <input
                 type="text"
                 id="email"
+                onChange={handleEmailChange}
                 placeholder="Enter your email"
                 pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 required
@@ -47,7 +82,7 @@ const ForgotPasswordComponent = (): JSX.Element => {
                   <path d="m307.929688 329.398438c-5.460938 0-10.921876-2.089844-15.082032-6.25l-286.589844-286.59375c-8.34375-8.339844-8.34375-21.824219 0-30.164063 8.339844-8.339844 21.820313-8.339844 30.164063 0l286.589844 286.59375c8.34375 8.339844 8.34375 21.824219 0 30.164063-4.160157 4.179687-9.621094 6.25-15.082031 6.25zm0 0" />
                 </g>
               </svg>
-              <span className="tooltip"></span>
+              <span className="tooltip">{errorMessage}</span>
             </label>
             <button className="submit">Submit</button>
             <button className="submit">Sign In</button>
