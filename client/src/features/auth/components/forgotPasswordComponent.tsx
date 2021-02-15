@@ -85,7 +85,7 @@ const ForgotPasswordComponent = (): JSX.Element => {
               <span className="tooltip">{errorMessage}</span>
             </label>
             <button className="submit">Submit</button>
-            <button className="submit">Sign In</button>
+            <button className="submit2">Sign In</button>
           </form>
         </div>
         <div className="right-side">
