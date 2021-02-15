@@ -1,0 +1,29 @@
+@keyframes top-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-25px);
+    z-index: 2;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bottom-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(25px);
+    z-index: 2;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

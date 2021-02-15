@@ -1,0 +1,308 @@
+@mixin small-phone {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin absolute-zero($z-index: 0) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index;
+}
+
+@mixin flex-row-align($align: center) {
+  display: flex;
+  align-items: $align;
+}
+
+@mixin flex-row-content-align($align: center, $justify-content: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align;
+}
+
+@mixin flex-column-center($align-items: center, $justify-content: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+// My mixines
+@mixin wrapper {
+  font-family: "Manrope", sans-serif;
+  position: absolute;
+  display: flex;
+  width: 1100px;
+  height: 640px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  opacity: 0.98;
+  box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  @content;
+}
+
+@mixin tooltip {
+  display: none;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.4s linear, opacity 0.4s ease;
+  line-height: 1.4;
+  font-size: 14px;
+  color: #282c40;
+  background-color: #ffb648;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  &::after {
+    content: "";
+    position: absolute;
+    border: 10px solid;
+    border-color: #ffb648 transparent transparent transparent;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin animation-block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 258px;
+  height: 258px;
+  .navi {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .pubg {
+    position: absolute;
+    left: -50px;
+    top: -42px;
+    z-index: 0;
+    animation-delay: 1s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-name: top-animation;
+  }
+  .cs {
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    z-index: 0;
+    animation-delay: 1.6s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-name: top-animation;
+  }
+  .fortnite {
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    z-index: 0;
+    animation-delay: 2.2s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-name: bottom-animation;
+  }
+  .dota {
+    position: absolute;
+    left: -62px;
+    bottom: -70px;
+
+    animation-delay: 2.8s;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-name: bottom-animation;
+    z-index: 0;
+  }
+}
+
+
+@mixin input-area {
+    position: relative;
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 52px;
+        margin-bottom: 20px;
+        color: #82869a;
+       
+        .check {
+          position: absolute;
+          top: 40px;
+          right: 10px;
+          fill: none;
+          transform: translate(0, 9px) scale(0);
+          transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+          transition-delay: 0.15s;
+          path {
+            stroke: gray;
+            stroke-width: 2;
+          }
+        }
+        .invalid-check {
+          position: absolute;
+          top: 40px;
+          right: 10px;
+          g {
+            fill: none;
+          }
+          transform: translate(0, 9px) scale(0);
+          transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+          transition-delay: 0.15s;
+        }
+        @include tooltip;
+        input {
+          -webkit-appearance: none;
+          width: 100%;
+          border: 0;
+          padding: 0;
+          height: 42px;
+          z-index: 5;
+          background: none;
+          border-radius: 0;
+          transition: all 0.15s ease;
+
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 110%;
+          color: #373c56;
+          border-bottom: 3px solid gray;
+          &::placeholder {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 110%;
+            color: rgba(130, 134, 154, 0.5);
+          }
+          &:focus {
+            outline: none;
+            border-bottom: 3px solid #f0ae4b;
+            ~ {
+              .tooltip {
+                display: block;
+                opacity: 1;
+              }
+            }
+          }
+          &:valid {
+            border-bottom: 3px solid #2dd348;
+            + {
+              .check {
+                transform: translate(0, 0) scale(1);
+                path {
+                  stroke: #2dd348;
+                }
+              }
+            }
+          }
+          &:not(:placeholder-shown) {
+            &:not(:focus) {
+              &:invalid {
+                border-bottom: 3px solid #f44336;
+
+                ~ {
+                  .invalid-check {
+                    transform: translate(0, 0) scale(1);
+                    g {
+                      fill: #f44336;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+}
+@mixin phone-animation-block {
+  .navi {
+    left: 50%;
+    top: 50%;
+    width: 150px;
+  }
+  .pubg,
+  .cs,
+  .fortnite,
+  .dota {
+    width: 90px;
+  }
+  .pubg {
+    left: 10px;
+    top: 10px;
+  }
+  .cs {
+    right: 10px;
+    top: 10px;
+  }
+  .fortnite {
+    right: 10px;
+    bottom: -2px;
+  }
+  .dota {
+    left: 5px;
+    bottom: 2px;
+  }
+}
+
+@mixin phone420 {
+  @media (max-width: "420px") {
+    @content;
+  }
+}
+
+@mixin table890 {
+  @media (max-width: "890px") {
+    @content;
+  }
+}
+
+@mixin desktop1110 {
+  @media (max-width: "1110px") {
+    @content;
+  }
+}

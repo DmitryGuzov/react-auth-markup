@@ -1,0 +1,138 @@
+@import "./base/typography";
+@import "./utils/mixines";
+@import "./utils/variables";
+@import "./utils/keyframes";
+
+// SIGN IN
+.signin-wrapper {
+  @include wrapper;
+
+  @include desktop1110 {
+    .signin-wrapper {
+      width: 100%;
+      margin: 20px;
+      align-items: center;
+      // padding: 10px;
+      margin: auto;
+      .left-side {
+        order: 1;
+        width: 100%;
+        padding: 20px;
+      }
+      .right-side {
+        order: 2;
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+  @include table890 {
+    .signin-wrapper {
+        position: relative;
+        border-radius: 0;
+        left: 0;
+        transform: translate(0, 0);
+        height: 1200px;
+        flex-direction: column;
+        .left-side {
+          order: 2;
+          width: 100%;
+          height: auto;
+          .continue-border {
+            p {
+              width: 100%;
+              text-align: center;
+              &::before {
+                width: 20%;
+                left: 30px;
+              }
+              &::after {
+                width: 20%;
+                right: 30px;
+              }
+            }
+          }
+          .signin-form {
+            .submit {
+              width: 100%;
+            }
+          }
+          border-radius: 0;
+        }
+        .right-side {
+          order: 1;
+          width: 100%;
+          height: 100vh;
+          border-radius: 0 0 10px 10px;
+        }
+      }
+  }
+  @include phone420 {
+    .signin-wrapper {
+      height: auto;
+      .left-side {
+        .continue-border {
+          p {
+            &::before {
+              width: 20%;
+              left: 20px;
+            }
+            &::after {
+              width: 20%;
+              right: 20px;
+            }
+          }
+        }
+      }
+      .right-side {
+        padding: 10px;
+        .top-group {
+          .title {
+            font-size: 26px;
+          }
+          .text {
+            font-size: 16px;
+          }
+        }
+        .animation-block {
+          @include phone-animation-block;
+        }
+      }
+    }
+  }
+}
+// SIGN UP
+.signup-wrapper {
+  @include wrapper;
+
+  @include desktop1110 {
+
+  }
+  @include table890 {
+
+  }
+  @include phone420 {
+    .signup-wrapper {
+        height: auto;
+        .left-side {
+          height: auto;
+        }
+        .right-side {
+          height: 100vh;
+          padding: 15px;
+          .top-group {
+            
+            .title {
+              font-size: 26px;
+            }
+            .text {
+              font-size: 16px;
+            }
+          }
+          .animation-block {
+           @include phone-animation-block
+          }
+        }
+      }
+  }
+}
