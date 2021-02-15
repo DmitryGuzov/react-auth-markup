@@ -10,13 +10,12 @@ import navi from "../../../assets/img/navi.png";
 // import steam from '../../../assets/img/steam.png'
 
 const SignInComponent = (): JSX.Element => {
-
-  const checkPassword = (event: any)  => {
+  const checkPassword = (event: any) => {
     var password = event.target.value; // Получаем пароль из формы
     var s_letters = "qwertyuiopasdfghjklzxcvbnm"; // Буквы в нижнем регистре
     var b_letters = "QWERTYUIOPLKJHGFDSAZXCVBNM"; // Буквы в верхнем регистре
     var digits = "0123456789"; // Цифры
-    var specials = "!@#$%^&*()_-+=\|/.,:;[]{}"; // Спецсимволы
+    var specials = "!@#$%^&*()_-+=|/.,:;[]{}"; // Спецсимволы
     var is_s = false; // Есть ли в пароле буквы в нижнем регистре
     var is_b = false; // Есть ли в пароле буквы в верхнем регистре
     var is_d = false; // Есть ли в пароле цифры
@@ -42,10 +41,9 @@ const SignInComponent = (): JSX.Element => {
     else if (password.length >= 6 && rating == 1) text = "Простой";
     else if (password.length >= 6 && rating > 1 && rating < 4) text = "Средний";
     else if (password.length >= 6 && rating == 4) text = "Сложный";
-    if(event.keyCode===13 && event.ctrlKey)
-      alert(text); // Выводим итоговую сложность пароля
+    if (event.keyCode === 13 && event.ctrlKey) alert(text); // Выводим итоговую сложность пароля
     return false; // Форму не отправляем
-  }
+  };
 
   return (
     <>
@@ -72,10 +70,10 @@ const SignInComponent = (): JSX.Element => {
                 <path d="M1 7 5.5 11 L13 1"></path>
               </svg>
               <svg
-               className="invalid-check"
-               width="15px"
-               height="12px"
-               viewBox="0 0 350 350"
+                className="invalid-check"
+                width="15px"
+                height="12px"
+                viewBox="0 0 350 350"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g fill="#f44336">
@@ -85,13 +83,25 @@ const SignInComponent = (): JSX.Element => {
               </svg>
               <span className="tooltip">
                 <ul>
-                  Email must be with: 
+                  Email must be with:
                   <li>@</li>
                   <li>.</li>
                   <li>example: mail@gmail.com</li>
                 </ul>
               </span>
             </label>
+
+            {/* <div className="wrapper">
+              <input type="text" />
+
+              {isInvalid ? (
+                <div className="invalid-wrapper">
+                  {isInvalidEmail ? <div className=""> @</div> : null}
+                  {isInvalidDoth ? <div className=""> .</div> : null}
+                </div>
+              ) : null}
+            </div> */}
+
             <label htmlFor="password" className="input">
               Password
               <input
@@ -111,10 +121,10 @@ const SignInComponent = (): JSX.Element => {
                 <path d="M1 7 5.5 11 L13 1"></path>
               </svg>
               <svg
-               className="invalid-check"
-               width="15px"
-               height="12px"
-               viewBox="0 0 350 350"
+                className="invalid-check"
+                width="15px"
+                height="12px"
+                viewBox="0 0 350 350"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g fill="#f44336">
@@ -123,8 +133,8 @@ const SignInComponent = (): JSX.Element => {
                 </g>
               </svg>
               <span className="tooltip">
-              <ul>
-                  Password must include: 
+                <ul>
+                  Password must include:
                   <li>Uppercase letter</li>
                   <li>Lowercase letter</li>
                   <li>Number</li>
