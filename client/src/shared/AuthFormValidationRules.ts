@@ -105,6 +105,8 @@ export function signupValidate(values: any) {
         errors.password = "Password must be 8 or more characters";
       } else if (values.password.length > 20) {
         errors.password = "Password must be less then 20 characters";
+      } else if (values.password === values.email.match(/^([^@]+)/g)) {
+        errors.password = "Ваш пароль не должен совпадать с адресом почты";
       } else if (!/\d/g.test(values.password)) {
         errors.password = "Password don't has a number";
       } else if (!/[A-Z]/g.test(values.password)) {
