@@ -5,25 +5,25 @@ import "./signUpComponent.scss";
 import InputComponent from "../inputComponent/InputComponent";
 import RightSideComponent from "../rightSideComponent/RightSideComponent";
 import LeftSideComponent from "../leftSideComponent/LeftSideComponent";
+import useForm from "shared/useForm";
+import { signupValidate } from "shared/AuthFormValidationRules";
 
 const SignUpComponent = (): JSX.Element => {
-  const [form, setForm] = React.useState({
-    name: "",
-    email: "",
-    password: "",
-    repeatPassword: "",
-  });
-  const handleChangeForm = (evt: any) => {
-    setForm({ ...form, [evt.target.name]: evt.target.value });
-  };
+  function signUp() {
+    alert("No errors, submit callback called!");
+  }
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    signUp,
+    signupValidate
+  );
   React.useEffect(() => {
     return () => {};
-  }, [form]);
+  }, [errors, values]);
   return (
     <>
       <div className="signup-wrapper">
         <LeftSideComponent title="Sign Up" text="Don't have an account?">
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={handleSubmit} noValidate>
             <InputComponent
               label="Full Name"
               id="name"
@@ -31,8 +31,9 @@ const SignUpComponent = (): JSX.Element => {
               inputType="text"
               pattern="^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)"
               placeholder="Ivan Ivanov"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.name || ""}
+              onChange={handleChange}
+              value={values.name || ""}
             />
             <InputComponent
               label="Your email"
@@ -41,8 +42,9 @@ const SignUpComponent = (): JSX.Element => {
               inputType="text"
               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               placeholder="Enter your email"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.email || ""}
+              onChange={handleChange}
+              value={values.email || ""}
             />
             <InputComponent
               label="Your password"
@@ -51,18 +53,20 @@ const SignUpComponent = (): JSX.Element => {
               inputType="password"
               pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{8,20})$"
               placeholder="Enter your password"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.password || ""}
+              onChange={handleChange}
+              value={values.password || ""}
             />
             <InputComponent
               label="Repeat password"
               id="repeat-password"
               inputName="repeatPassword"
               inputType="password"
-              pattern={form.password}
+              pattern={values.password || ""}
               placeholder="Enter your password"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.repeatPassword || ""}
+              onChange={handleChange}
+              value={values.repeatPassword || ""}
             />
             <button className="submit">Sign Up</button>
           </form>

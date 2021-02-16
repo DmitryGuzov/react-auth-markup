@@ -14,7 +14,6 @@ import { AuthSignInModel, AuthSignUpModel } from "../../models";
 import { SIGNIN_PAGE_URL, SIGNUP_PAGE_URL } from "features/auth/urls";
 
 import { GoogleLogin } from "react-google-login";
-import addNotification from "react-push-notification";
 
 interface AuthPageProps {
   value: any;
@@ -23,7 +22,7 @@ interface AuthPageProps {
   authSignUp: (signUpModel: AuthSignUpModel) => void;
   googleAuth: (googleAuthModel: any) => void;
   status: string;
-  isSignin: string;
+  isSignin: string; 
 }
 const authSignInValidation = Yup.object<AuthSignInModel>({
   email: Yup.string().required(),
@@ -83,15 +82,7 @@ export function AuthFormComponent({
     },
     [authSignUp]
   );
-  const buttonClick = () => {
-    addNotification({
-      title: "Warning",
-      subtitle: "This is a subtitle",
-      message: "This is a very long message",
-      theme: "darkblue",
-      native: true, // when using native, your OS will handle theming.
-    });
-  };
+ 
   const signInError = () => {
     message.error("Incorrect email or password");
   };
@@ -175,9 +166,6 @@ export function AuthFormComponent({
                   {type === "text" ? <EyeInvisibleOutlined /> : <EyeOutlined />}
                 </span>
               </label>
-              <button onClick={buttonClick} className="button">
-                Hello world.
-              </button>
               <Button htmlType="submit" loading={loading}>
                 {status}
               </Button>

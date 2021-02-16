@@ -7,21 +7,25 @@ import InputComponent from "../inputComponent/InputComponent";
 
 import LeftSideComponent from "../leftSideComponent/LeftSideComponent";
 import RightSideComponent from "../rightSideComponent/RightSideComponent";
+import { signinValidate } from "shared/AuthFormValidationRules";
+import useForm from "shared/useForm";
 
 const SignInComponent = (): JSX.Element => {
-  const [form, setForm] = React.useState({ email: "", password: "" });
-
-  const handleChangeForm = (evt: any) => {
-    setForm({ ...form, [evt.target.name]: evt.target.value });
-  };
+  function signIn() {
+    alert("No errors, submit callback called!");
+  }
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    signIn,
+    signinValidate
+  );
   React.useEffect(() => {
     return () => {};
-  }, [form]);
+  }, [errors, values]);
   return (
     <>
       <div className="signin-wrapper">
         <LeftSideComponent title="Sign In" text="Welcome, we missed you!">
-          <form className="signin-form">
+          <form className="signin-form" onSubmit={handleSubmit} noValidate>
             <InputComponent
               label="Your email"
               id="email"
@@ -29,8 +33,9 @@ const SignInComponent = (): JSX.Element => {
               inputType="text"
               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               placeholder="Enter your email"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.email || ""}
+              onChange={handleChange}
+              value={values.email || ""}
             />
             <InputComponent
               label="Your password"
@@ -39,8 +44,9 @@ const SignInComponent = (): JSX.Element => {
               inputType="password"
               pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{8,20})$"
               placeholder="Enter your password"
-              errors="Some error"
-              onChange={handleChangeForm}
+              errors={errors.password || ""}
+              onChange={handleChange}
+              value={values.password || ""}
             />
             <div className="remebmer-group">
               <div className="checkbox">
