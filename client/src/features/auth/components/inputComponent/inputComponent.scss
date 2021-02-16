@@ -1,0 +1,122 @@
+label {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 52px;
+  margin-bottom: 50px;
+  color: #82869a;
+
+  .check {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    fill: none;
+    transform: translate(0, 9px) scale(0);
+    transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+    transition-delay: 0.15s;
+    path {
+      stroke: gray;
+      stroke-width: 2;
+    }
+  }
+  .invalid-check {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    g {
+      fill: none;
+    }
+    transform: translate(0, 9px) scale(0);
+    transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+    transition-delay: 0.15s;
+  }
+  .tooltip {
+    display: none;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.4s linear, opacity 0.4s ease;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #282c40;
+    background-color: #ffb648;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    &::after {
+      content: "";
+      position: absolute;
+      border: 10px solid;
+      border-color: #ffb648 transparent transparent transparent;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    height: 42px;
+    z-index: 5;
+    background: none;
+    border-radius: 0;
+    transition: all 0.15s ease;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 110%;
+    color: #373c56;
+    border-bottom: 3px solid gray;
+    &::placeholder {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 110%;
+      color: rgba(130, 134, 154, 0.5);
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid #f0ae4b;
+      ~ {
+        .tooltip {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+    &:valid {
+      border-bottom: 3px solid #2dd348;
+      + {
+        .check {
+          transform: translate(0, 0) scale(1);
+          path {
+            stroke: #2dd348;
+          }
+        }
+      }
+    }
+    &:not(:placeholder-shown) {
+      &:not(:focus) {
+        &:invalid {
+          border-bottom: 3px solid #f44336;
+
+          ~ {
+            .invalid-check {
+              transform: translate(0, 0) scale(1);
+              g {
+                fill: #f44336;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

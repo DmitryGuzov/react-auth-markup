@@ -1,7 +1,7 @@
 import React from "react";
 // Layouts
 import { AuthLayout } from "../../../layout/authLayout/AuthLayout";
-import SignUpComponent from "../components/signUpComponent";
+import SignUpContainer from "../containers/SignUpContainer";
 // Containers
 
 interface SignUpPageProps {}
@@ -9,7 +9,7 @@ interface SignUpPageProps {}
 export function SignUpPage({}: SignUpPageProps): JSX.Element {
   return (
     <AuthLayout>
-      <SignUpComponent />
+      <SignUpContainer />
     </AuthLayout>
   );
 }

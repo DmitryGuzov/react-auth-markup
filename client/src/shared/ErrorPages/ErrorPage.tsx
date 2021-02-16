@@ -71,10 +71,10 @@ export function ErrorPage({}: ErrorPageProps): JSX.Element {
         <div className="buttons-con">
           <div className="action-link-wrap">
             <Button>
-              <Link to="/home">Home</Link>
+              <Link to="/signin">Sign in page</Link>
             </Button>
             <Button>
-              <Link to="/signin">Signin</Link>
+              <Link to="/signup">Sign up page</Link>
             </Button>
           </div>
         </div>
