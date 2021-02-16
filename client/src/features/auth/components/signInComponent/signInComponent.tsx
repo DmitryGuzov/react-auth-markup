@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import "./signInComponent.scss";
 
 import InputComponent from "../inputComponent/InputComponent";
-import RightSideComponent from "../rightSideComponent/RightSideComponent";
+
 import LeftSideComponent from "../leftSideComponent/LeftSideComponent";
+import RightSideComponent from "../rightSideComponent/RightSideComponent";
 
 const SignInComponent = (): JSX.Element => {
   return (

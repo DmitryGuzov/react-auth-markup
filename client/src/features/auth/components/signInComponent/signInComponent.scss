@@ -28,7 +28,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 53px;
+        height: 25px;
         margin-bottom: 20px;
         .checkbox {
           & > label {
@@ -39,8 +39,8 @@
             color: rgba(130, 134, 154, 0.6);
           }
           & > .styled-checkbox {
-            position: absolute; // take it out of document flow
-            opacity: 0; // hide it
+            position: absolute;
+            opacity: 0;
             border-radius: 50%;
             transition: all 200ms ease-out;
 
@@ -54,8 +54,6 @@
               font-size: 14px;
               line-height: 110%;
             }
-
-            // Box.
             & + label:before {
               content: "";
               margin-right: 10px;
@@ -67,35 +65,27 @@
               background: #ebebeb;
               transition: all 200ms ease-out;
             }
-
-            // Box hover
             &:hover + label:before {
               background: #f0ae4b;
             }
-
-            // Box focus
             &:focus + label:before {
               box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
             }
 
-            // Box checked
             &:checked + label:before {
               background: #f0ae4b;
             }
 
-            // Disabled state label.
             &:disabled + label {
               color: #b8b8b8;
               cursor: auto;
             }
 
-            // Disabled box.
             &:disabled + label:before {
               box-shadow: none;
               background: #ddd;
             }
 
-            // Checkmark. Could be replaced with an image
             &:checked + label:after {
               content: "";
               position: absolute;
@@ -115,7 +105,7 @@
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
-          // line-height: 110%;
+          line-height: 110%;
           color: #f0ae4b;
           text-decoration: none;
           padding-bottom: 3px;

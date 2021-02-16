@@ -23,7 +23,7 @@ const InputComponent = ({
 }: InputComponentProps): JSX.Element => {
   return (
     <>
-      <label htmlFor={id}>
+      <label htmlFor={id} className="input-label">
         {label}
         <input
           type={inputType}
