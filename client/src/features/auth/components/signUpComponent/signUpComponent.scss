@@ -1,6 +1,5 @@
-
-@import '../../../../assets/scss/utils/mixines';
-@import "../../../../assets/scss/pages/authPage.scss";
+@import "../../../../assets/scss/utils/mixines";
+@import "../../../../assets/scss/pages/authPage";
 
 .signup-wrapper {
   @include auth-wrapper;
@@ -157,33 +156,7 @@
         }
       }
       .animation-block {
-        .navi {
-          left: 50%;
-          top: 50%;
-          width: 150px;
-        }
-        .pubg,
-        .cs,
-        .fortnite,
-        .dota {
-          width: 90px;
-        }
-        .pubg {
-          left: 10px;
-          top: 10px;
-        }
-        .cs {
-          right: 10px;
-          top: 10px;
-        }
-        .fortnite {
-          right: 10px;
-          bottom: -2px;
-        }
-        .dota {
-          left: 5px;
-          bottom: 2px;
-        }
+        @include phone-animation-block;
       }
     }
   }

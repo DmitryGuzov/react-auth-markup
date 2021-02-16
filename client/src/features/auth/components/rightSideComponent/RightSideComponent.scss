@@ -1,105 +1,54 @@
+@import "../../../../assets/scss/utils/variables";
+@import "../../../../assets//scss/pages/authPage.scss";
+
 .right-side {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background-color: $right_bg;
+  border-radius: 0 20px 20px 0;
+  padding: 30px 50px;
+  .top-group {
     position: relative;
-    width: 50%;
-    height: 100%;
-    background-color: #272b3f;
-    border-radius: 0 20px 20px 0;
-    padding: 30px 50px;
-    .top-group {
-      position: relative;
-      height: 80px;
-      .title {
-        display: block;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 36px;
-        color: #ffffff;
-      }
-      .text {
-        position: absolute;
-        bottom: 0;
-        display: block;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        color: #868ba0;
-      }
+    height: 80px;
+    .title {
+      display: block;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      color: #ffffff;
     }
-    .link {
+    .text {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 30px;
-      color: #82869a;
-      line-height: 190%;
-      text-align: center;
-      width: 100%;
-      a {
-        color: #f0ae4b;
-        text-decoration: none;
-        padding-bottom: 3px;
-        transition: all 100ms ease-out;
-        border-bottom: 1px solid transparent;
-        &:hover {
-          border-bottom: 1px solid #f0ae4b;
-        }
-      }
+      bottom: 0;
+      display: block;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      color: #868ba0;
     }
-    .animation-block {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 258px;
-      height: 258px;
-      .navi {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-      }
-
-      .pubg {
-        position: absolute;
-        left: -50px;
-        top: -42px;
-        z-index: 0;
-        animation-delay: 1s;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-name: top-animation;
-      }
-      .cs {
-        position: absolute;
-        right: -80px;
-        top: -80px;
-        z-index: 0;
-        animation-delay: 1.6s;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-name: top-animation;
-      }
-      .fortnite {
-        position: absolute;
-        right: -60px;
-        bottom: -60px;
-        z-index: 0;
-        animation-delay: 2.2s;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-name: bottom-animation;
-      }
-      .dota {
-        position: absolute;
-        left: -62px;
-        bottom: -70px;
-
-        animation-delay: 2.8s;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-name: bottom-animation;
-        z-index: 0;
+  }
+  .link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    color: #82869a;
+    line-height: 190%;
+    text-align: center;
+    width: 100%;
+    a {
+      color: #f0ae4b;
+      text-decoration: none;
+      padding-bottom: 3px;
+      transition: all 100ms ease-out;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        border-bottom: 1px solid #f0ae4b;
       }
     }
   }
+  .animation-block {
+    @include animation-block;
+  }
+}

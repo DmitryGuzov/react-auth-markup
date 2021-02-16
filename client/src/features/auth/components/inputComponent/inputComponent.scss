@@ -1,4 +1,5 @@
-@import "../../../../assets/scss/pages/authPage.scss";
+@import "../../../../assets/scss/pages/authPage";
+@import '../../../../assets//scss//utils/variables';
 
 .input-label {
   position: relative;
@@ -7,7 +8,7 @@
   width: 100%;
   height: 62px;
   margin-bottom: 25px;
-  color: #82869a;
+  color: $input_text_color;
 
   .check {
     position: absolute;
@@ -61,7 +62,7 @@
     }
     &:focus {
       outline: none;
-      border-bottom: 3px solid #f0ae4b;
+      border-bottom: 3px solid $input_focus;
       ~ {
         .tooltip {
           display: block;
@@ -70,12 +71,12 @@
       }
     }
     &:valid {
-      border-bottom: 3px solid #2dd348;
+      border-bottom: 3px solid $input_success;
       + {
         .check {
           transform: translate(0, 0) scale(1);
           path {
-            stroke: #2dd348;
+            stroke: $input_success;
           }
         }
       }
@@ -83,13 +84,13 @@
     &:not(:placeholder-shown) {
       &:not(:focus) {
         &:invalid {
-          border-bottom: 3px solid #f44336;
+          border-bottom: 3px solid $input_error;
 
           ~ {
             .invalid-check {
               transform: translate(0, 0) scale(1);
               g {
-                fill: #f44336;
+                fill: $input_error;
               }
             }
           }
