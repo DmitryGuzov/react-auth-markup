@@ -9,6 +9,7 @@ interface InputComponentProps {
   placeholder: string;
   pattern: string;
   errors: string;
+  inputName: string;
   onChange?: (evt: any) => void;
 }
 
@@ -19,6 +20,7 @@ const InputComponent = ({
   placeholder,
   pattern,
   errors,
+  inputName,
   onChange
 }: InputComponentProps): JSX.Element => {
   return (
@@ -28,6 +30,7 @@ const InputComponent = ({
         <input
           type={inputType}
           id={id}
+          name={inputName}
           placeholder={placeholder}
           pattern={pattern}
           onChange={onChange}

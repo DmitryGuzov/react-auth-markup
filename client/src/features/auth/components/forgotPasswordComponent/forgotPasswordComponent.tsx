@@ -7,8 +7,8 @@ import LeftSideComponent from "../leftSideComponent/LeftSideComponent";
 import RightSideComponent from "../rightSideComponent/RightSideComponent";
 
 const ForgotPasswordComponent = (): JSX.Element => {
-  const [email, setEmail] = React.useState("");
-  const [isValid, setIsValid] = React.useState(false);
+  const [form, setForm] = React.useState({ email: "" });
+  // const [isValid, setIsValid] = React.useState(false);
   // const [errorMessage, setErrorMessage] = React.useState(
   //   "Вы еще ничего не ввели"
   // );
@@ -33,14 +33,14 @@ const ForgotPasswordComponent = (): JSX.Element => {
   //     }
   //   }
   // };
-  // const handleEmailChange = (evt: any) => {
-  //   setEmail(evt.target.value);
-  //   Errors("email", evt.target.value);
-  // };
+  const handleChangeForm = (evt: any) => {
+    setForm({ ...form, [evt.target.name]: evt.target.value });
+    // Errors("email", evt.target.value);
+  };
   React.useEffect(() => {
-    console.log(isValid, setIsValid, setEmail);
+    console.log(form);
     return () => {};
-  }, [isValid, email]);
+  }, [form]);
   return (
     <>
       <div className="forgot-password-wrapper">
@@ -52,10 +52,12 @@ const ForgotPasswordComponent = (): JSX.Element => {
             <InputComponent
               label="Your email"
               id="email"
+              inputName="email"
               inputType="text"
               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               placeholder="Enter your email"
               errors="Some error"
+              onChange={handleChangeForm}
             />
             <button className="submit">Submit</button>
             <button className="submit2">Sign In</button>

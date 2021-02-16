@@ -1,5 +1,5 @@
 @import "../../../../assets/scss/pages/authPage";
-@import '../../../../assets//scss//utils/variables';
+@import "../../../../assets//scss//utils/variables";
 
 .input-label {
   position: relative;
@@ -12,7 +12,7 @@
 
   .check {
     position: absolute;
-    top: 40px;
+    top: 37px;
     right: 10px;
     fill: none;
     transform: translate(0, 9px) scale(0);
@@ -25,7 +25,7 @@
   }
   .invalid-check {
     position: absolute;
-    top: 40px;
+    top: 37px;
     right: 10px;
     g {
       fill: none;
@@ -38,64 +38,7 @@
     @include tooltip;
   }
   input {
-    -webkit-appearance: none;
-    width: 100%;
-    border: 0;
-    padding: 0;
-    height: 42px;
-    z-index: 5;
-    background: none;
-    border-radius: 0;
-    transition: all 0.15s ease;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 110%;
-    color: #373c56;
-    border-bottom: 3px solid gray;
-    &::placeholder {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 110%;
-      color: rgba(130, 134, 154, 0.5);
-    }
-    &:focus {
-      outline: none;
-      border-bottom: 3px solid $input_focus;
-      ~ {
-        .tooltip {
-          display: block;
-          opacity: 1;
-        }
-      }
-    }
-    &:valid {
-      border-bottom: 3px solid $input_success;
-      + {
-        .check {
-          transform: translate(0, 0) scale(1);
-          path {
-            stroke: $input_success;
-          }
-        }
-      }
-    }
-    &:not(:placeholder-shown) {
-      &:not(:focus) {
-        &:invalid {
-          border-bottom: 3px solid $input_error;
-
-          ~ {
-            .invalid-check {
-              transform: translate(0, 0) scale(1);
-              g {
-                fill: $input_error;
-              }
-            }
-          }
-        }
-      }
-    }
+    @include input-style;
+    @include input-style-effects;
   }
 }
