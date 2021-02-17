@@ -1,0 +1,20 @@
+.left-side {
+  width: 50%;
+  height: 100%;
+  border-radius: 20px 0 0 20px;
+  padding: 70px 87px;
+  & > .title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 110%;
+    color: #282c40;
+  }
+  & > .text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 110%;
+    color: rgba(40, 44, 64, 0.6);
+  }
+}

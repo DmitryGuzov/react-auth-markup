@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./inputComponent.scss";
+import "./InputComponent.scss";
 
 interface InputComponentProps {
   inputType: string;

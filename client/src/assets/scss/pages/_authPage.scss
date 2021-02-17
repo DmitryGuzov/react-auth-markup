@@ -13,27 +13,6 @@
   border-radius: 20px;
 }
 
-@mixin button($width, $height, $radius, $bg, $color) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: $width;
-  height: $height;
-  border-radius: $radius;
-  color: $color;
-  border: none;
-  cursor: pointer;
-  background: $bg;
-  -webkit-transition: background 1s ease-out;
-  -moz-transition: background 1s ease-out;
-  -o-transition: background 1s ease-out;
-  transition: background 1s ease-out;
-
-  background-size: 1px 100px;
-  &:hover {
-    background-position: 200px;
-  }
-}
 @mixin other-button-style(
   $width,
   $height,
@@ -41,7 +20,6 @@
   $bg,
   $hover,
   $color,
-  $icon,
   $icon-margin-right
 ) {
   display: flex;
@@ -61,14 +39,8 @@
   &:hover {
     background-color: $hover;
   }
-  span {
-    background: $icon;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 24px;
+  & > span {
     margin-right: $icon-margin-right;
-    height: 24px;
   }
 }
 
@@ -107,7 +79,7 @@
   transform: translate(-50%, -50%);
   width: 258px;
   height: 258px;
-  .navi {
+  & > .navi {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -115,7 +87,7 @@
     z-index: 1;
   }
 
-  .pubg {
+  & > .pubg {
     position: absolute;
     left: -50px;
     top: -42px;
@@ -125,7 +97,7 @@
     animation-iteration-count: infinite;
     animation-name: top-animation;
   }
-  .cs {
+  & > .cs {
     position: absolute;
     right: -80px;
     top: -80px;
@@ -135,7 +107,7 @@
     animation-iteration-count: infinite;
     animation-name: top-animation;
   }
-  .fortnite {
+  & > .fortnite {
     position: absolute;
     right: -60px;
     bottom: -60px;
@@ -145,7 +117,7 @@
     animation-iteration-count: infinite;
     animation-name: bottom-animation;
   }
-  .dota {
+  & > .dota {
     position: absolute;
     left: -62px;
     bottom: -70px;
@@ -158,35 +130,36 @@
   }
 }
 @mixin phone-animation-block {
-  .navi {
+  & > .pubg,
+  & > .cs,
+  & > .fortnite,
+  & > .dota {
+    width: 90px;
+  }
+
+  & > .navi {
     left: 50%;
     top: 50%;
     width: 150px;
   }
-  .pubg,
-  .cs,
-  .fortnite,
-  .dota {
-    width: 90px;
-  }
-  .pubg {
+
+  & > .pubg {
     left: 10px;
     top: 10px;
   }
-  .cs {
+  & > .cs {
     right: 10px;
     top: 10px;
   }
-  .fortnite {
+  & > .fortnite {
     right: 10px;
     bottom: -2px;
   }
-  .dota {
+  & > .dota {
     left: 5px;
     bottom: 2px;
   }
 }
-
 @mixin input-style {
   -webkit-appearance: none;
   width: 100%;
@@ -205,7 +178,6 @@
   color: #373c56;
   border-bottom: 3px solid gray;
 }
-
 @mixin input-style-effects {
   &::placeholder {
     font-weight: 500;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./signInComponent.scss";
+import "./SignInComponent.scss";
 
 import InputComponent from "../inputComponent/InputComponent";
 
@@ -60,7 +60,7 @@ const SignInComponent = (): JSX.Element => {
               </div>
               <Link to="/forgot-password">Forgot Password?</Link>
             </div>
-            <button className="submit">Sign In</button>
+            <button className="auth-submit bg-orange-gradient">Sign In</button>
           </form>
           <div className="continue-border">
             <p>or continue with</p>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./LeftSideComponent.scss";
+
 interface LeftSideComponentProps {
   title: string;
   text: string;
@@ -9,7 +11,6 @@ interface LeftSideComponentProps {
 const LeftSideComponent = ({
   title,
   text,
-
   children,
 }: LeftSideComponentProps): JSX.Element => {
   return (

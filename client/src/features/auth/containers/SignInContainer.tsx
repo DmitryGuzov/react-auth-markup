@@ -2,7 +2,7 @@ import React  from "react";
 // Actions
 // Models
 // Components
-import SignInComponent from "../components/signInComponent/signInComponent";
+import SignInComponent from "../components/signInComponent/SignInComponent";
 
 export interface SignInContainerProps {
 }

@@ -8,7 +8,7 @@
   background-color: $right_bg;
   border-radius: 0 20px 20px 0;
   padding: 30px 50px;
-  .top-group {
+  & > .top-group {
     position: relative;
     height: 80px;
     .title {
@@ -28,7 +28,7 @@
       color: #868ba0;
     }
   }
-  .link {
+  & > .link {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -48,7 +48,7 @@
       }
     }
   }
-  .animation-block {
+  & > .animation-block {
     @include animation-block;
   }
 }

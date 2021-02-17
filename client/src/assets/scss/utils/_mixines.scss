@@ -61,21 +61,26 @@
 }
 // My mixines
 
-
 @mixin phone420 {
-  @media (max-width: "420px") {
+  @media screen and (max-width: "420px") {
     @content;
   }
 }
 
 @mixin table890 {
-  @media (max-width: "890px") {
+  @media screen and (max-width: "890px") {
     @content;
   }
 }
 
 @mixin desktop1110 {
-  @media (max-width: "1110px") {
+  @media screen and (max-width: "1110px") {
+    @content;
+  }
+}
+
+@mixin IpadPro1024 {
+  @media screen and (max-width: "1025px") {
     @content;
   }
 }

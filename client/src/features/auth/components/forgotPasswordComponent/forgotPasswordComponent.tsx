@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./forgotPasswordComponent.scss";
+import "./ForgotPasswordComponent.scss";
 
 import InputComponent from "../inputComponent/InputComponent";
 import LeftSideComponent from "../leftSideComponent/LeftSideComponent";
@@ -40,8 +40,8 @@ const ForgotPasswordComponent = (): JSX.Element => {
               onChange={handleChange}
               value={values.email || ""}
             />
-            <button className="submit">Submit</button>
-            <button className="submit2">Sign In</button>
+            <button className="auth-submit bg-blue-gradient">Submit</button>
+            <button className="auth-submit bg-gray">Sign In</button>
           </form>
         </LeftSideComponent>
         <RightSideComponent link="/signup" />

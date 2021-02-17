@@ -2,7 +2,7 @@ import React  from "react";
 // Actions
 // Models
 // Components
-import ForgotPasswordComponent from "../components/forgotPasswordComponent/forgotPasswordComponent";
+import ForgotPasswordComponent from "../components/forgotPasswordComponent/ForgotPasswordComponent";
 
 export interface ForgotPasswordContainerProps {
 }

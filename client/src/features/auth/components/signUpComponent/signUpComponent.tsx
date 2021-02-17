@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./signUpComponent.scss";
+import "./SignUpComponent.scss";
 
 import InputComponent from "../inputComponent/InputComponent";
 import RightSideComponent from "../rightSideComponent/RightSideComponent";
@@ -68,7 +68,7 @@ const SignUpComponent = (): JSX.Element => {
               onChange={handleChange}
               value={values.repeatPassword || ""}
             />
-            <button className="submit">Sign Up</button>
+            <button className="auth-submit bg-blue-gradient">Sign Up</button>
           </form>
         </LeftSideComponent>
         <RightSideComponent link="/signin" />

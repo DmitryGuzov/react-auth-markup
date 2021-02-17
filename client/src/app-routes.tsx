@@ -4,5 +4,5 @@ import { AuthRoutes } from './features/auth';
 
 export const AppRoutes = [
   ...AuthRoutes,
-    <Redirect key="home-page" from="/" to="/signin" />
+    <Redirect key="home-page" from="/" to="/signin" />,
 ];
