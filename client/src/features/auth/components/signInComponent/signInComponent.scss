@@ -294,4 +294,10 @@
       }
     }
   }
+  @include Landscape{
+    height: auto;
+    & > .right-side {
+      height: 700px;
+    }
+  }
 }

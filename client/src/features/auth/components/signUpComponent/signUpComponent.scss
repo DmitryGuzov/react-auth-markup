@@ -122,6 +122,7 @@
       border-radius: 0 0 10px 10px;
     }
   }
+ 
   @include table890 {
     position: relative;
     border-radius: 0;
@@ -191,6 +192,12 @@
       & > .animation-block {
         @include phone-animation-block;
       }
+    }
+  }
+  @include Landscape{
+    height: auto;
+    & > .right-side {
+      height: 700px;
     }
   }
 }

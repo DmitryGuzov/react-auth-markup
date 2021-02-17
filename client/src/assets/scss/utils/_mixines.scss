@@ -84,3 +84,9 @@
     @content;
   }
 }
+
+@mixin Landscape {
+  @media screen and(max-height: '580px')  and (orientation: 'landscape') {
+    @content;
+  }
+}
